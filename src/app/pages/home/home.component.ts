@@ -1,10 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Sku } from '../../models/sku.model';
 import { ProductService } from '../../services/product.service';
+import { ProductCardComponent } from "../../components/product-card/product-card.component";
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [ProductCardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
