@@ -34,8 +34,7 @@ export class ProductDetailComponent implements OnInit {
     if (this.product) {
       this.cartService.addToCart(this.product);
       this.showAlert = true;
-      setTimeout(() => this.showAlert = false, 3000);
-      // alert('Producto añadido al carrito!');
+      setTimeout(() => (this.showAlert = false), 3000);
     }
   }
 }
