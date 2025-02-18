@@ -1,65 +1,71 @@
 <div class="container mt-4">
   <h2 class="text-center">Móviles reacondicionados</h2>
 
-  <div class="row mb-3">
-    <div class="col-md-3">
-      <label for="color">Color:</label>
-      <select
-        id="color"
-        [(ngModel)]="filters.color"
-        (change)="updateFilters()"
-        class="form-control"
-      >
-        <option value="">Todos</option>
-        <option value="white">Blanco</option>
-        <option value="black">Negro</option>
-        <option value="red">Rojo</option>
-        <option value="pink">Rosa</option>
-      </select>
-    </div>
-    <div class="col-md-3">
-      <label for="grade">Estado:</label>
-      <select
-        id="grade"
-        [(ngModel)]="filters.grade"
-        (change)="updateFilters()"
-        class="form-control"
-      >
-        <option value="">Todos</option>
-        <option value="excellent">Excelente</option>
-        <option value="very_good">Muy bueno</option>
-        <option value="good">Bueno</option>
-      </select>
-    </div>
-    <div class="col-md-3">
-      <label for="storage">Capacidad:</label>
-      <select
-        id="storage"
-        [(ngModel)]="filters.storage"
-        (change)="updateFilters()"
-        class="form-control"
-      >
-        <option value="">Todas</option>
-        <option value="64">64GB</option>
-        <option value="128">128GB</option>
-        <option value="256">256GB</option>
-        <option value="512">512GB</option>
-      </select>
-    </div>
-    <div class="col-md-3">
-      <label for="sort">Ordenar por:</label>
-      <select
-        id="sort"
-        [(ngModel)]="filters.sort"
-        (change)="updateFilters()"
-        class="form-control"
-      >
-        <option value="">Por defecto</option>
-        <option value="price-asc">Precio: Menor a mayor</option>
-        <option value="price-desc">Precio: Mayor a menor</option>
-        <option value="name-asc">Nombre: A-Z</option>
-        <option value="name-desc">Nombre: Z-A</option>
-      </select>
+  <button class="btn btn-primary d-md-none mb-3 w-100" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapse">
+    Filtros
+  </button>
+
+  <div class="collapse d-md-block" id="filterCollapse">
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <label for="color">Color:</label>
+        <select
+          id="color"
+          [(ngModel)]="filters.color"
+          (change)="updateFilters()"
+          class="form-control"
+        >
+          <option value="">Todos</option>
+          <option value="white">Blanco</option>
+          <option value="black">Negro</option>
+          <option value="red">Rojo</option>
+          <option value="pink">Rosa</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <label for="grade">Estado:</label>
+        <select
+          id="grade"
+          [(ngModel)]="filters.grade"
+          (change)="updateFilters()"
+          class="form-control"
+        >
+          <option value="">Todos</option>
+          <option value="excellent">Excelente</option>
+          <option value="very_good">Muy bueno</option>
+          <option value="good">Bueno</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <label for="storage">Capacidad:</label>
+        <select
+          id="storage"
+          [(ngModel)]="filters.storage"
+          (change)="updateFilters()"
+          class="form-control"
+        >
+          <option value="">Todas</option>
+          <option value="64">64GB</option>
+          <option value="128">128GB</option>
+          <option value="256">256GB</option>
+          <option value="512">512GB</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <label for="sort">Ordenar por:</label>
+        <select
+          id="sort"
+          [(ngModel)]="filters.sort"
+          (change)="updateFilters()"
+          class="form-control"
+        >
+          <option value="">Por defecto</option>
+          <option value="price-asc">Precio: Menor a mayor</option>
+          <option value="price-desc">Precio: Mayor a menor</option>
+          <option value="name-asc">Nombre: A-Z</option>
+          <option value="name-desc">Nombre: Z-A</option>
+        </select>
+      </div>
     </div>
   </div>
 
