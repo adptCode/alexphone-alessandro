@@ -13,6 +13,7 @@ import { CartService } from '../../services/cart.service';
 export class ProductDetailComponent implements OnInit {
   product!: Sku;
   loading = true;
+  showAlert = false;
 
   private route = inject(ActivatedRoute);
   private productService = inject(ProductService);
@@ -32,7 +33,9 @@ export class ProductDetailComponent implements OnInit {
   addToCart(): void {
     if (this.product) {
       this.cartService.addToCart(this.product);
-      alert('Producto añadido al carrito!');
+      this.showAlert = true;
+      setTimeout(() => this.showAlert = false, 3000);
+      // alert('Producto añadido al carrito!');
     }
   }
 }
