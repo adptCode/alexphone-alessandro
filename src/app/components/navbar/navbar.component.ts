@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,6 +8,22 @@ import { RouterLink } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
+  cartItemCount = 0;
+
+  private cartService = inject(CartService);
+
+  ngOnInit(): void {
+    this.updateCartCount(); // Inicializa el contador
+
+    // Escuchar cambios en el carrito y actualizar contador
+    this.cartService.cartUpdated.subscribe(() => {
+      this.updateCartCount();
+    });
+  }
+
+  updateCartCount(): void {
+    this.cartItemCount = this.cartService.getCart().length;
+  }
 
 }

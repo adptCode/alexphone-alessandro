@@ -6,9 +6,14 @@
     </a>
 
     <!-- Botón de Carrito -->
-    <div class="d-flex">
-      <a routerLink="/cart" class="btn btn-outline-light">
+    <div class="d-flex position-relative">
+      <a routerLink="/cart" class="btn btn-outline-light position-relative">
         🛒
+        @if (cartItemCount > 0) {
+          <span class="cart-badge">
+            {{ cartItemCount }}
+          </span>
+        }
       </a>
     </div>
   </div>

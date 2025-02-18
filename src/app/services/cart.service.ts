@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Sku } from '../models/sku.model';
 import { environment } from '../../environments/environment';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { CreateOrderBody } from '../models/order.model';
 import { HttpClient } from '@angular/common/http';
 
@@ -13,6 +13,9 @@ export class CartService {
   private http = inject(HttpClient);
   private apiUrl = environment.API_URL;
 
+  private cartUpdatedSubject = new BehaviorSubject<void>(undefined);
+  cartUpdated = this.cartUpdatedSubject.asObservable();
+
   getCart(): Sku[] {
     return JSON.parse(localStorage.getItem(this.cartKey) || '[]');
   }
@@ -21,6 +24,7 @@ export class CartService {
     const cart = this.getCart();
     cart.push(product);
     localStorage.setItem(this.cartKey, JSON.stringify(cart));
+    this.cartUpdatedSubject.next();
   }
 
   removeFromCart(productSku: string): void {
@@ -29,11 +33,13 @@ export class CartService {
     if (index !== -1) {
       cart.splice(index, 1);
       localStorage.setItem(this.cartKey, JSON.stringify(cart));
+      this.cartUpdatedSubject.next();
     }
   }
 
   clearCart(): void {
     localStorage.removeItem(this.cartKey);
+    this.cartUpdatedSubject.next();
   }
 
   placeOrder(): Observable<void> {
