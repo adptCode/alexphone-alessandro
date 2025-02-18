@@ -18,4 +18,14 @@ export class CartComponent implements OnInit{
     this.cart = this.cartService.getCart();
   }
 
+  removeItem(sku: string): void {
+    this.cartService.removeFromCart(sku)
+    this.cart = this.cartService.getCart()
+  }
+
+  clearCart(): void {
+    this.cartService.clearCart()
+    this.cart = []
+  }
+
 }
