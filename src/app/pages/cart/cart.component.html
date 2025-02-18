@@ -1,1 +1,27 @@
-<p>cart works!</p>
+<div class="container mt-5">
+  <h2>🛒 Tu Carrito</h2>
+
+  @if (cart.length > 0) {
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (product of cart; track $index) {
+      <tr>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}€</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  } @else {
+    <div>
+      <p class="text-muted">El carrito está vacío.</p>
+    </div>
+  }
+</div>
