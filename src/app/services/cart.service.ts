@@ -6,10 +6,9 @@ import { CreateOrderBody } from '../models/order.model';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartService {
-
   private cartKey = 'cart_items';
   private http = inject(HttpClient);
   private apiUrl = environment.API_URL;
@@ -19,22 +18,26 @@ export class CartService {
   }
 
   addToCart(product: Sku): void {
-    const cart = this.getCart()
-    cart.push(product)
-    localStorage.setItem(this.cartKey, JSON.stringify(cart))
+    const cart = this.getCart();
+    cart.push(product);
+    localStorage.setItem(this.cartKey, JSON.stringify(cart));
   }
 
   removeFromCart(productSku: string): void {
-    const cart = this.getCart().filter(item => item.sku !== productSku)
-    localStorage.setItem(this.cartKey, JSON.stringify(cart))
+    const cart = this.getCart();
+    const index = cart.findIndex((item) => item.sku === productSku);
+    if (index !== -1) {
+      cart.splice(index, 1);
+      localStorage.setItem(this.cartKey, JSON.stringify(cart));
+    }
   }
 
   clearCart(): void {
-    localStorage.removeItem(this.cartKey)
+    localStorage.removeItem(this.cartKey);
   }
 
   placeOrder(): Observable<void> {
-    const order: CreateOrderBody = { skus: this.getCart() }
-    return this.http.put<void>(`${this.apiUrl}/order`, order)
+    const order: CreateOrderBody = { skus: this.getCart() };
+    return this.http.put<void>(`${this.apiUrl}/order`, order);
   }
 }
