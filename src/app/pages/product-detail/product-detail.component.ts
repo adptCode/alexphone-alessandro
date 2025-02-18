@@ -18,10 +18,11 @@ export class ProductDetailComponent implements OnInit {
   private productService = inject(ProductService);
 
   ngOnInit(): void {
-    const productId = this.route.snapshot.paramMap.get('id');
+    const productSku = this.route.snapshot.paramMap.get('sku');
 
-    if (productId) {
-      this.productService.getProductById(productId).subscribe(data => {
+    if (productSku) {
+      this.productService.getProductById(productSku).subscribe(data => {
+        console.log(data)
         this.product = data;
         this.loading = false;
       });

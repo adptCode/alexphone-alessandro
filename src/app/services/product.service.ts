@@ -16,7 +16,7 @@ export class ProductService {
     return this.http.get<Sku[]>(`${this.apiUrl}/skus`);
   }
 
-  getProductById(id: string): Observable<Sku> {
-    return this.http.get<Sku>(`${this.apiUrl}/sku/${id}`);
+  getProductById(sku: string): Observable<Sku> {
+    return this.http.get<Sku>(`${this.apiUrl}/sku/${sku}`);
   }
 }
