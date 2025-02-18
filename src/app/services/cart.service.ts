@@ -17,4 +17,15 @@ export class CartService {
     cart.push(product)
     localStorage.setItem(this.cartKey, JSON.stringify(cart))
   }
+
+  removeFromCart(product: Sku): void {
+    const cart = this.getCart()
+    const index = cart.findIndex(item => item.id === product.id)
+    cart.splice(index, 1)
+    localStorage.setItem(this.cartKey, JSON.stringify(cart))
+  }
+
+  clearCart(): void {
+    localStorage.removeItem(this.cartKey)
+  }
 }
