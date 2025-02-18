@@ -7,10 +7,9 @@ import { ProductService } from '../../services/product.service';
   selector: 'app-product-detail',
   imports: [],
   templateUrl: './product-detail.component.html',
-  styleUrl: './product-detail.component.css'
+  styleUrl: './product-detail.component.css',
 })
 export class ProductDetailComponent implements OnInit {
-
   product!: Sku;
   loading = true;
 
@@ -21,12 +20,10 @@ export class ProductDetailComponent implements OnInit {
     const productSku = this.route.snapshot.paramMap.get('sku');
 
     if (productSku) {
-      this.productService.getProductById(productSku).subscribe(data => {
-        console.log(data)
+      this.productService.getProductById(productSku).subscribe((data) => {
         this.product = data;
         this.loading = false;
       });
     }
   }
-
 }

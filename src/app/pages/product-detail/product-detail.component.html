@@ -1,31 +1,36 @@
 @if (!loading) {
-  <div class="container mt-5">
-    <div class="row">
-      <!-- Imagen del producto -->
-      <div class="col-md-6">
-        <img [src]="product.image" class="img-fluid rounded" alt="{{ product.name }}">
-      </div>
+<div class="container mt-5">
+  <div class="row align-items-center justify-content-center text-center">
+    <!-- Imagen del producto -->
+    <div class="col-12 col-md-6 d-flex justify-content-center">
+      <img
+        [src]="product.image"
+        class="img-fluid rounded"
+        alt="{{ product.name }}"
+      />
+    </div>
 
-      <!-- Información del producto -->
-      <div class="col-md-6">
-        <h2>{{ product.name }}</h2>
-        <p><strong>Precio:</strong> {{ product.price }}€</p>
-        <p><strong>Color:</strong> {{ product.color }}</p>
-        <p><strong>Capacidad:</strong> {{ product.storage }}GB</p>
-        <p><strong>Estado:</strong> {{ product.grade }}</p>
-        <p>{{ product.description }}</p>
+    <!-- Información del producto -->
+    <div class="col-12 col-md-6 d-flex flex-column align-items-center">
+      <h2>{{ product.name }}</h2>
+      <p><strong>Precio:</strong> {{ product.price }}€</p>
+      <p><strong>Color:</strong> {{ product.color }}</p>
+      <p><strong>Capacidad:</strong> {{ product.storage }}GB</p>
+      <p><strong>Estado:</strong> {{ product.grade }}</p>
+      <p>{{ product.description }}</p>
 
-        <!-- Botón para añadir al carrito -->
-        <button class="btn btn-primary">>Añadir al carrito</button> <!-- add to cart ()-->
-      </div>
+      <!-- Botón para añadir al carrito -->
+      <button class="btn btn-primary mt-3">>Añadir al carrito</button>
+      <!-- add to cart ()-->
     </div>
   </div>
+</div>
 } @else {
-  <ng-template>
-    <div class="text-center mt-5">
-      <div class="spinner-border text-primary" role="status">
-        <span class="sr-only">Cargando...</span>
-      </div>
-    </div>
-  </ng-template>
+
+<div class="text-center mt-5">
+  <div class="spinner-border text-primary" role="status">
+    <span class="sr-only">Cargando...</span>
+  </div>
+</div>
+
 }
