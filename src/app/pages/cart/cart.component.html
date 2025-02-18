@@ -25,6 +25,10 @@
   </table>
 
   <button class="btn btn-warning mt-3" (click)="clearCart()">Vaciar carrito</button>
+  <button class="btn btn-success mt-3 ms-3" (click)="placeOrder()" [disabled]="isLoading">
+    {{ isLoading ? 'Procesando...' : 'Realizar Pedido' }}
+  </button>
+  
   } @else {
     <div>
       <p class="text-muted">El carrito está vacío.</p>

@@ -11,6 +11,7 @@ import { CartService } from '../../services/cart.service';
 export class CartComponent implements OnInit{
 
   cart: Sku[] = [];
+  isLoading = false;
 
   private cartService = inject(CartService);
 
@@ -26,6 +27,28 @@ export class CartComponent implements OnInit{
   clearCart(): void {
     this.cartService.clearCart()
     this.cart = []
+  }
+
+  placeOrder(): void {
+    if (this.cart.length === 0) {
+      alert('El carrito está vacío.')
+      return
+    }
+
+    this.isLoading = true
+
+    this.cartService.placeOrder().subscribe({
+      next: () => {
+        alert('Pedido realizado con éxito!')
+        this.clearCart()
+        this.isLoading = false
+      },
+      error: (err) => {
+        console.error('Error al realizar el pedido:', err)
+        alert('Hubo un problema al procesar el pedido.')
+        this.isLoading = false
+      }
+    })
   }
 
 }

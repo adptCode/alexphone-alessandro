@@ -1,5 +1,9 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Sku } from '../models/sku.model';
+import { environment } from '../../environments/environment';
+import { Observable } from 'rxjs';
+import { CreateOrderBody } from '../models/order.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +11,8 @@ import { Sku } from '../models/sku.model';
 export class CartService {
 
   private cartKey = 'cart_items';
+  private http = inject(HttpClient);
+  private apiUrl = environment.API_URL;
 
   getCart(): Sku[] {
     return JSON.parse(localStorage.getItem(this.cartKey) || '[]');
@@ -25,5 +31,10 @@ export class CartService {
 
   clearCart(): void {
     localStorage.removeItem(this.cartKey)
+  }
+
+  placeOrder(): Observable<void> {
+    const order: CreateOrderBody = { skus: this.getCart() }
+    return this.http.put<void>(`${this.apiUrl}/order`, order)
   }
 }
