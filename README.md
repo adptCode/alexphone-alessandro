@@ -24,6 +24,10 @@ Bienvenido a **AlexPhone**, un e-commerce de móviles reacondicionados donde los
 ✅ **Pruebas unitarias y de integración** con Jasmine/Karma.  
 ✅ **Despliegue en Netlify**.
 
+## Screenshot
+
+![](./public/screenshot.png)
+
 ## 📂 Estructura del proyecto
 
 ```
@@ -71,6 +75,7 @@ Para hacer deploy manual en Netlify:
    ```
 2. Subir la carpeta `/dist` a Netlify.
 3. Configurar como sitio estático y listo.
+4. Puedes ver el proyecto desplegado aquí: 🌍 [Netlify](https://alexphone-alessandro.netlify.app/)
 
 ## 📝 Autor
 👨‍💻 **Alessandro De Pietri Tonelli**  
