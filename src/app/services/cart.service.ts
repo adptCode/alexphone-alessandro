@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { Sku } from '../models/sku.model';
 import { environment } from '../../environments/environment';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { CreateOrderBody } from '../models/order.model';
+import { CreateOrderBody, CreateOrderSku } from '../models/order.model';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -43,7 +43,17 @@ export class CartService {
   }
 
   placeOrder(): Observable<void> {
-    const order: CreateOrderBody = { skus: this.getCart() };
+    const cartItems = this.getCart();
+    const orderItems: CreateOrderSku[] = cartItems.map((product) => ({
+      id: product.id,
+      sku: product.sku,
+      grade: product.grade,
+      color: product.color,
+      storage: product.storage,
+    }));
+
+    const order: CreateOrderBody = { skus: orderItems };
+
     return this.http.put<void>(`${this.apiUrl}/order`, order);
   }
 }

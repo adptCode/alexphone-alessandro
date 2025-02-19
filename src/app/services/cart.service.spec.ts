@@ -93,7 +93,7 @@ describe('CartService', () => {
     expect(cart[0]).toEqual(mockProduct);
   });
 
-  // Test the placeOrder method
+  // Test place order to API
   it('should send an order to the API', () => {
     const mockProduct: Sku = {
       id: '1',
@@ -115,7 +115,20 @@ describe('CartService', () => {
 
     const req = httpMock.expectOne(`${environment.API_URL}/order`);
     expect(req.request.method).toBe('PUT');
-    expect(req.request.body).toEqual({ skus: [mockProduct] });
+
+    // Ahora comparamos solo las propiedades que la API espera
+    expect(req.request.body).toEqual({
+      skus: [
+        {
+          id: mockProduct.id,
+          sku: mockProduct.sku,
+          grade: mockProduct.grade,
+          color: mockProduct.color,
+          storage: mockProduct.storage,
+        },
+      ],
+    });
+
     req.flush(null);
   });
 });
