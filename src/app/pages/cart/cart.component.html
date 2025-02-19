@@ -2,9 +2,9 @@
   <h2>🛒 Tu Carrito</h2>
 
   @if (alertMessage) {
-    <div class="alert alert-{{ alertType }} alert-dismissible fade show" role="alert">
-      {{ alertMessage }}
-    </div>
+  <div class="alert alert-{{ alertType }} alert-dismissible fade show" role="alert">
+    {{ alertMessage }}
+  </div>
   }
 
   @if (cart.length > 0) {
@@ -36,8 +36,8 @@
   </button>
 
   } @else {
-    <div>
-      <p class="text-muted">El carrito está vacío.</p>
-    </div>
+  <div>
+    <p class="text-muted">El carrito está vacío.</p>
+  </div>
   }
 </div>

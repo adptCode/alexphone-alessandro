@@ -6,7 +6,7 @@ import { CartService } from '../../services/cart.service';
   selector: 'app-navbar',
   imports: [RouterLink],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrl: './navbar.component.css',
 })
 export class NavbarComponent implements OnInit {
   cartItemCount = 0;
@@ -14,9 +14,7 @@ export class NavbarComponent implements OnInit {
   private cartService = inject(CartService);
 
   ngOnInit(): void {
-    this.updateCartCount(); // Inicializa el contador
-
-    // Escuchar cambios en el carrito y actualizar contador
+    this.updateCartCount();
     this.cartService.cartUpdated.subscribe(() => {
       this.updateCartCount();
     });
@@ -25,5 +23,4 @@ export class NavbarComponent implements OnInit {
   updateCartCount(): void {
     this.cartItemCount = this.cartService.getCart().length;
   }
-
 }

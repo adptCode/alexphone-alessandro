@@ -19,10 +19,12 @@ describe('HomeComponent', () => {
         provideHttpClientTesting(),
         ProductService,
         { provide: ActivatedRoute, useValue: { queryParams: of({}) } },
-        { provide: Router, useValue: { navigate: jasmine.createSpy('navigate') } } 
-      ]
-    })
-    .compileComponents();
+        {
+          provide: Router,
+          useValue: { navigate: jasmine.createSpy('navigate') },
+        },
+      ],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
