@@ -1,4 +1,4 @@
-<div class="card p-2">
+<a [routerLink]="['/product', product.sku]" class="card p-2 text-decoration-none">
   <img [src]="product.image" class="card-img-top" alt="{{ product.name }}">
   <div class="card-body">
     <h5 class="card-title">{{ product.name }}</h5>
@@ -6,6 +6,5 @@
     <p class="card-text">Color: {{ product.color }}</p>
     <p class="card-text">Capacidad: {{ product.storage }}GB</p>
     <p class="card-text">Estado: {{ product.grade }}</p>
-    <a [routerLink]="['/product', product.sku]" class="btn btn-primary">Ver detalles</a>
   </div>
-</div>
+</a>
