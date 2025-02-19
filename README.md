@@ -1,59 +1,82 @@
-# AlexphoneAlessandro
+# 📱 AlexPhone E-Commerce
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.4.
+Bienvenido a **AlexPhone**, un e-commerce de móviles reacondicionados donde los usuarios pueden explorar productos, filtrarlos y ordenarlos, ver detalles y realizar compras.
 
-## Development server
+## 🚀 Tecnologías utilizadas
 
-To start a local development server, run:
+- **Angular 19** - Framework frontend
+- **TypeScript** - Tipado fuerte y desarrollo estructurado
+- **Bootstrap** - Diseño responsivo
+- **RxJS** - Manejo de datos reactivos
+- **ESLint & Prettier** - Código limpio y formateado
 
-```bash
-ng serve
+## 📌 Características principales
+
+✅ **Lista de iPhones en formato grid** con imagen, precio y características.  
+✅ **Filtros avanzados** por color, estado y capacidad.  
+✅ **Persistencia de filtros en la URL** para compartir resultados.  
+✅ **Página de detalles** con toda la información y opción de añadir al carrito.  
+✅ **Carrito de compras** con almacenamiento en LocalStorage.  
+✅ **Realización de pedidos con integración a API**.  
+✅ **Navbar con contador de productos en carrito**.  
+✅ **Diseño responsive**, con filtros ocultables en dispositivos móviles.  
+✅ **Alertas Bootstrap en vez de `alert()`** para mejorar UX.  
+✅ **Pruebas unitarias y de integración** con Jasmine/Karma.  
+✅ **Despliegue en Netlify**.
+
+## 📂 Estructura del proyecto
+
+```
+src/app/
+│── components/        # Componentes reutilizables (navbar, cards)
+│── pages/             # Páginas principales (home, product-detail, cart)
+│── services/          # Servicios para la API y carrito
+│── models/            # Interfaces y tipos
+│── app.component.ts   # Componente raíz
+│── app.routes.ts      # Configuración de rutas
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🛠️ Instalación y ejecución local
 
-## Code scaffolding
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/adptCode/alexphone-alessandro.git
+   cd alexphone-alessandro
+   ```
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+2. Instalar dependencias:
+   ```bash
+   npm install
+   ```
 
-```bash
-ng generate component component-name
-```
+3. Ejecutar el proyecto:
+   ```bash
+   ng serve
+   ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+4. Abrir en el navegador:  
+   👉 **http://localhost:4200**
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
+## ✅ Pruebas unitarias e integración
+Para ejecutar los tests:
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+## 🚀 Despliegue en Netlify
+Para hacer deploy manual en Netlify:
+1. Compilar el proyecto:
+   ```bash
+   ng build --configuration=production
+   ```
+2. Subir la carpeta `/dist` a Netlify.
+3. Configurar como sitio estático y listo.
 
-For end-to-end (e2e) testing, run:
+## 📝 Autor
+👨‍💻 **Alessandro De Pietri Tonelli**  
+🔗 [LinkedIn](https://www.linkedin.com/in/alessandrodpt) | 🌐 [Portafolio](https://alessandrodpt.netlify.app/)
 
-```bash
-ng e2e
-```
+---
+🎯 **Si tienes feedback o sugerencias, estaré encantado de escucharlas!** 🚀
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
