@@ -3,10 +3,13 @@ import { Sku } from '../../models/sku.model';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { CartService } from '../../services/cart.service';
+import { GradeFormatPipe } from "../../pipes/grade-format.pipe";
+import { CapitalizePipe } from "../../pipes/capitalize.pipe";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-product-detail',
-  imports: [],
+  imports: [CommonModule, GradeFormatPipe, CapitalizePipe],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.css',
 })

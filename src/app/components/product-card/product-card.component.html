@@ -3,8 +3,11 @@
   <div class="card-body">
     <h5 class="card-title">{{ product.name }}</h5>
     <p class="card-text">Precio: {{ product.price }}€</p>
-    <p class="card-text">Color: {{ product.color }}</p>
+    <p class="card-text">
+      Color: <span>{{ product.color | capitalize }}</span>
+      <span class="color-circle" [ngClass]="product.color"></span>
+    </p>
     <p class="card-text">Capacidad: {{ product.storage }}GB</p>
-    <p class="card-text">Estado: {{ product.grade }}</p>
+    <p class="card-text">Estado: {{ product.grade | gradeFormat }}</p>
   </div>
 </a>

@@ -15,9 +15,12 @@
     <div class="col-12 col-md-6 d-flex flex-column align-items-center">
       <h2>{{ product.name }}</h2>
       <p><strong>Precio:</strong> {{ product.price }}€</p>
-      <p><strong>Color:</strong> {{ product.color }}</p>
+      <p>
+        <strong>Color:</strong> <span> {{ product.color | capitalize }} </span>
+        <span class="color-circle" [ngClass]="product.color"></span>
+      </p>
       <p><strong>Capacidad:</strong> {{ product.storage }}GB</p>
-      <p><strong>Estado:</strong> {{ product.grade }}</p>
+      <p><strong>Estado:</strong> {{ product.grade | gradeFormat }}</p>
       <p>{{ product.description }}</p>
 
       <!-- Botón para añadir al carrito -->
