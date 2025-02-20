@@ -33,6 +33,7 @@ Bienvenido a **AlexPhone**, un e-commerce de móviles reacondicionados donde los
 ```
 src/app/
 │── components/        # Componentes reutilizables (navbar, cards)
+│── pipes/             # Pipes personalizados (capitalize, formato de estado de los iPhones)
 │── pages/             # Páginas principales (home, product-detail, cart)
 │── services/          # Servicios para la API y carrito
 │── models/            # Interfaces y tipos
